@@ -1,0 +1,55 @@
+<html>
+	<style type="text/css">
+		.form-style {
+		    max-width: 500px;
+		    padding: 20px 12px 10px 20px;
+		    font: 13px Arial, Helvetica, sans-serif;
+		}
+		
+		.form-style-heading {
+		    font-weight: bold;
+		    font-style: italic;
+		    border-bottom: 2px solid #ddd;
+		    margin-bottom: 20px;
+		    font-size: 15px;
+		    padding-bottom: 3px;
+		}
+		
+		table {
+			border-spacing: 11px 11px;
+		}
+		
+	</style>
+	
+	{% block content %}	
+	<div class="form-style">
+		<a href="http://127.0.0.1:5000/index">index</a>
+		<div class="form-style-heading">Report</div>
+		<table>
+		
+			<tr>
+				<td></td>
+				{% for day,date in daysorder.iteritems() %}
+					<td>{{day}}<br>{{date}}</td>
+				{% endfor %}
+			</tr>
+			
+			{% for key in report.keys() %}
+			<tr>
+				<td>{{key}}</td>
+				{% for date in daysorder.values() %}
+					{% if report[key].get(date) %}
+						{% set val = report[key][date] %}
+						<td>{{val}}</td>
+					{% else %}
+						<td></td>
+					{% endif %}
+				{% endfor %}	
+			</tr>
+			{% endfor %}
+			
+		</table>
+	</div>
+	{% endblock %}
+	
+</html>
