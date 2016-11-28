@@ -4,7 +4,7 @@
 #sudo apt-get install sqlite3 libsqlite3-dev
 #sudo ./pip install pysqlite
 
-#crontab -e
+#EDITOR=gedit crontab -e
 #*/1 * * * * /opt/zvooq/bin/python /home/user/workspace/skytrack/skytrackapp/logger/importdata.py >> /tmp/out.txt 2>&1
 
 from sqlalchemy import create_engine
